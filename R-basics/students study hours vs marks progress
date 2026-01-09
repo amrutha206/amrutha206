@@ -1,0 +1,40 @@
+study <- data.frame(
+  student = paste( "s", 1:10, sep = " "),
+  study_hours = c(1,2,2.5,3,4,5,6,6.5,7,8),
+  marks = c(35,40,45,50,60,68,75,78,85,92)
+)
+plot ( study$study_hours,
+       study$marks,
+       main = "study graph",
+       xlab = "study_hours",
+       ylab = "marks",
+       pch = 4,
+       type = "p",
+       col = "maroon"
+       )
+study_sorted <- study[order(study$study_hours), ]
+study_sorted
+plot(
+  study_sorted$study_hours,
+  study_sorted$marks,
+  type = "l",
+  main = "Marks Progression with Study Hours",
+  xlab = "Study Hours",
+  ylab = "Marks",
+  xlim = c(1, 10),
+  ylim = c(40, 100)
+)
+
+barplot(
+  height = study$marks,
+  names.arg = study$study_hours,
+  main = "Marks vs Study Hours",
+  xlab = "Study Hours",
+  ylab = "Marks",
+  col = c(
+    "lavender","lightblue","pink","grey","lightpink","mistyrose",
+    "honeydew","lightcyan","aliceblue","cornsilk","wheat","thistle"),
+  ylim = c(0, 100),
+  space = 0.5
+)
+mean(study$marks)
